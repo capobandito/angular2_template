@@ -15,8 +15,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let object of phones">
-                <td *ngFor="let column of columns">
+            <tr *ngFor="let object of phones" (click)="alert()">
+                <td *ngFor="let column of columns" >
                     {{object[column.variable]}}
                 </td>
             </tr>

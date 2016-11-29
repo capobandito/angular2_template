@@ -1,7 +1,7 @@
 /**
  * Created by Jan.Kovar on 29.11.2016.
  */
-import {Component, OnInit} from "@angular/core";
+import {Component, AfterViewInit, OnInit} from "@angular/core";
 import {PhoneService} from "../phone.service";
 import {Phone} from "../phone";
 declare var $: any
@@ -13,7 +13,10 @@ declare var $: any
 
 })
 
-export class TableDataComponent implements OnInit {
+export class TableDataComponent implements OnInit,AfterViewInit {
+
+
+    t: any;
 
     columns: any[] = [
         {
@@ -36,25 +39,34 @@ export class TableDataComponent implements OnInit {
     getPhones(): void {
         this.phoneService
             .searchPhones()
-            .subscribe(phones => this.phones = this.phones.concat(phones), error => console.log(error), this.setDataTable);
+            .subscribe((phones) => {
+                this.phones.concat(phones)
+
+                this.t = $('#example1').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": true,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                })
+                for (let phone of phones) {
+                    this.t.row.add([phone.id, phone.phoneNumber])
+                }
+            });
+
+    }
+
+    ngAfterViewInit() {
+        //  this.getPhones();
     }
 
     ngOnInit() {
         this.getPhones();
     }
 
-    setDataTable() {
-
-        $('#example1').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": true,
-            "ordering": false,
-            "info": true,
-            "autoWidth": false
-        });
-
+    alert() {
+        alert();
     }
-
 
 }
