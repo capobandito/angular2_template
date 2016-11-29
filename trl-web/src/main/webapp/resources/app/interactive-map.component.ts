@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Map} from "/resources/app/map";
-import {Path} from "/resources/app/path";
-import {MapService} from '/resources/app/map.service';
+import {Map} from "./map";
+import {Path} from "./path";
+import {MapService} from './map.service';
 
 @Component({
     selector: 'interactiveMap',

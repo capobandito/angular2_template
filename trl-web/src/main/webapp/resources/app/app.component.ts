@@ -1,14 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
-import {SidebarComponent} from '/resources/app/sidebar.component';
-import { PhoneService } from '/resources/app/phone.service';
+import {SidebarComponent} from './sidebar.component';
+import { PhoneService } from './phone.service';
 
 declare var $:any;
 
 @Component({
+    moduleId : module.id,
     selector: 'my-app',
-    templateUrl: '/resources/app/app.component.html',
+    templateUrl: './app.component.html',
     directives: [ROUTER_DIRECTIVES, SidebarComponent],
     providers: [
         PhoneService

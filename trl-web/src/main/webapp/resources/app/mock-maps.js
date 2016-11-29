@@ -1,3 +1,4 @@
+"use strict";
 var path_1 = require('./path');
 exports.DISTRICTS = [
     {

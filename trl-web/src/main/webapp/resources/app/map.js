@@ -1,4 +1,5 @@
-var path_1 = require("/resources/app/path");
+"use strict";
+var path_1 = require("./path");
 var Map = (function () {
     function Map() {
         this.viewBox = "50 200 950 1100";
@@ -16,6 +17,6 @@ var Map = (function () {
         ];
     }
     return Map;
-})();
+}());
 exports.Map = Map;
 //# sourceMappingURL=map.js.map

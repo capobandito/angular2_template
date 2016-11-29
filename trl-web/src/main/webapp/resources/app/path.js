@@ -1,3 +1,4 @@
+"use strict";
 var Path = (function () {
     function Path(title, d) {
         this.title = title;
@@ -7,6 +8,6 @@ var Path = (function () {
         this.found = found;
     };
     return Path;
-})();
+}());
 exports.Path = Path;
 //# sourceMappingURL=path.js.map

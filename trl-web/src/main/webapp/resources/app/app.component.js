@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var sidebar_component_1 = require('/resources/app/sidebar.component');
-var phone_service_1 = require('/resources/app/phone.service');
+var sidebar_component_1 = require('./sidebar.component');
+var phone_service_1 = require('./phone.service');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -25,8 +26,9 @@ var AppComponent = (function () {
     };
     AppComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-app',
-            templateUrl: '/resources/app/app.component.html',
+            templateUrl: './app.component.html',
             directives: [router_1.ROUTER_DIRECTIVES, sidebar_component_1.SidebarComponent],
             providers: [
                 phone_service_1.PhoneService
@@ -35,6 +37,6 @@ var AppComponent = (function () {
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
-})();
+}());
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

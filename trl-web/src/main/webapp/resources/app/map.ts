@@ -1,4 +1,4 @@
-import {Path} from "/resources/app/path";
+import {Path} from "./path";
 
 export class Map {
     viewBox = "50 200 950 1100"

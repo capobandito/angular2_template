@@ -40,7 +40,7 @@ export class TableComponent implements OnInit {
     getPhones(): void {
         this.phoneService
             .searchPhones()
-            .then(phones => this.phones = phones);
+            .subscribe(phones => this.phones = phones);
     }
 
     ngOnInit() {

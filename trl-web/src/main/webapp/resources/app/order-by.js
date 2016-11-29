@@ -4,6 +4,7 @@
  *		Multidimensional Array Sort on single column: *ngFor="let todo of todoService.todos | orderBy : ['-status']"
  *		Multidimensional Array Sort on multiple columns: *ngFor="let todo of todoService.todos | orderBy : ['status', '-title']"
  */
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -88,6 +89,6 @@ var OrderBy = (function () {
         __metadata('design:paramtypes', [])
     ], OrderBy);
     return OrderBy;
-})();
+}());
 exports.OrderBy = OrderBy;
 //# sourceMappingURL=order-by.js.map
