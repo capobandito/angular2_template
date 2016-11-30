@@ -1,3 +1,4 @@
+"use strict";
 var path_1 = require("/resources/app/path");
 var Map = (function () {
     function Map() {
@@ -16,6 +17,6 @@ var Map = (function () {
         ];
     }
     return Map;
-})();
+}());
 exports.Map = Map;
 //# sourceMappingURL=map.js.map

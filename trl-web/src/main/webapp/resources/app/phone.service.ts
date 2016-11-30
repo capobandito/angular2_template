@@ -1,7 +1,7 @@
 import { Injectable }    from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Phone } from 'resources/app/phone';
+import { Phone } from './phone';
 
 @Injectable()
 export class PhoneService {

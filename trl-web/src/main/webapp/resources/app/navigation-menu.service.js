@@ -10,26 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var Rx_1 = require('rxjs/Rx');
 require('rxjs/add/operator/toPromise');
-var PhoneService = (function () {
-    function PhoneService(http) {
+var NavigationMenuService = (function () {
+    function NavigationMenuService(http) {
         this.http = http;
     }
-    PhoneService.prototype.searchPhones = function () {
-        return this.http.get('/phone/', {})
+    NavigationMenuService.prototype.notificationsCount = function () {
+        return this.http.get('/api/notification/count', {})
             .toPromise()
-            .then(function (response) { return response.json().phones; })
+            .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    PhoneService.prototype.handleError = function (error) {
+    NavigationMenuService.prototype.notificationsCountObs = function () {
+        var _this = this;
+        return Rx_1.Observable.interval(5000).flatMap(function () {
+            return _this.http.get('/api/notification/count', {})
+                .map(function (res) { return res.json(); });
+        });
+    };
+    NavigationMenuService.prototype.handleError = function (error) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
-    PhoneService = __decorate([
+    NavigationMenuService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], PhoneService);
-    return PhoneService;
+    ], NavigationMenuService);
+    return NavigationMenuService;
 }());
-exports.PhoneService = PhoneService;
-//# sourceMappingURL=phone.service.js.map
+exports.NavigationMenuService = NavigationMenuService;
+//# sourceMappingURL=navigation-menu.service.js.map

@@ -1,3 +1,4 @@
+"use strict";
 var router_1 = require('@angular/router');
 var scheduler_component_1 = require('/resources/app/scheduler.component');
 var batchimport_component_1 = require('/resources/app/batchimport.component');

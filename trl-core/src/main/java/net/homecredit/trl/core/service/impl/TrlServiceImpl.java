@@ -1,6 +1,7 @@
-package net.homecredit.trl.core.service;
+package net.homecredit.trl.core.service.impl;
 
 import net.homecredit.trl.core.repository.TrlRepository;
+import net.homecredit.trl.core.service.TrlService;
 import net.homecredit.trl.domain.Phone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Created by Marek.Hlavacek on 6/16/2016.
  */
