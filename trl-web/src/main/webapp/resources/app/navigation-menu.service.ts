@@ -18,7 +18,7 @@ export class NavigationMenuService {
     notificationsCountObs(): Observable<Number> {
         return Observable.interval(5000).flatMap(() => {
             return this.http.get('/api/notification/count', {})
-                .map(res => res.json() as Number);
+                .map(response => response.json() as Number);
         });
     }
 

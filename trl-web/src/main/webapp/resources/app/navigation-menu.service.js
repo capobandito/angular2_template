@@ -26,7 +26,7 @@ var NavigationMenuService = (function () {
         var _this = this;
         return Rx_1.Observable.interval(5000).flatMap(function () {
             return _this.http.get('/api/notification/count', {})
-                .map(function (res) { return res.json(); });
+                .map(function (response) { return response.json(); });
         });
     };
     NavigationMenuService.prototype.handleError = function (error) {
