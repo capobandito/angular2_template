@@ -17,7 +17,6 @@ var InteractiveDistrictComponent = (function () {
         this.route = route;
         this.mapService = mapService;
         this.search = '';
-        this.isFound = false;
     }
     InteractiveDistrictComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -37,10 +36,18 @@ var InteractiveDistrictComponent = (function () {
             path.setFound(this.search && path.title.startsWith(this.search));
         }
     };
+    InteractiveDistrictComponent.prototype.setClasses = function (path) {
+        var classes = {
+            path: !path.found,
+            pathSlected: path.found
+        };
+        return classes;
+    };
     InteractiveDistrictComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'interactiveMap',
-            template: "\n\n    <link rel=\"stylesheet\" href=\"../resources/app/interactive-district.component.css\">\n\n    <h3 *ngIf=\"district && !selectedPath\">Selected subdistrict for {{district.title}}:</h3>\n    <h3 *ngIf=\"selectedPath\">Selected subdistrict for {{district.title}}: {{selectedPath.title}}</h3>\n\n    <div>\n        <input (keyup)=\"onKey($event)\">\n        <div *ngIf=\"district\">\n            <div *ngFor=\"let path of district.paths | foundPaths\">\n                {{path.title}}\n            </div>\n        </div>\n    </div>\n\n    <div *ngIf=\"district\">\n        <svg width=\"800\" height=\"600\" viewBox=\"0 0 744.09449 1052.3622\"\n             preserveAspectRatio=\"xMinYMin meet\" xmlns:svg=\"http://www.w3.org/1999/html\">\n\n          <svg:g [attr.title]=\"district.title\" [attr.transform]=\"district.transform\" >\n               <svg:path *ngFor=\"let path of district.paths\" [attr.d]=\"path.d\"\n                        [attr.title]=\"path.title\"\n                        (mouseover)=\"mouseOver(path)\"  [class.path]=\"!path.found\" [class.path-selected]=\"path.found\"></svg:path>\n          </svg:g>\n\n        </svg>\n    </div>\n    ",
+            template: "\n\n    <link rel=\"stylesheet\" href=\"./interactive-district.component.css\">\n\n    <h3 *ngIf=\"district && !selectedPath\">Selected subdistrict for {{district.title}}:</h3>\n    <h3 *ngIf=\"selectedPath\">Selected subdistrict for {{district.title}}: {{selectedPath.title}}</h3>\n\n    <div>\n        <input (keyup)=\"onKey($event)\">\n        <div *ngIf=\"district\">\n            <div *ngFor=\"let path of district.paths | foundPaths\">\n                {{path.title}}\n            </div>\n        </div>\n    </div>\n\n    <div *ngIf=\"district\">\n        <svg width=\"800\" height=\"600\" viewBox=\"0 0 744.09449 1052.3622\"\n             preserveAspectRatio=\"xMinYMin meet\" xmlns:svg=\"http://www.w3.org/1999/html\">\n\n          <svg:g [attr.title]=\"district.title\" [attr.transform]=\"district.transform\" >\n               <svg:path *ngFor=\"let path of district.paths\" [attr.d]=\"path.d\"\n                        [attr.title]=\"path.title\"\n                        (mouseover)=\"mouseOver(path)\" [ngClass]=\"setClasses(path)\"></svg:path>\n          </svg:g>\n\n        </svg>\n    </div>\n    ",
             providers: [map_service_1.MapService],
             pipes: [found_paths_pipe_1.FoundPathsPipe]
         }), 

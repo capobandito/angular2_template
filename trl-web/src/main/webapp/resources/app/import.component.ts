@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 
-import { Phone } from '/resources/app/phone';
-import { PhoneService } from '/resources/app/phone.service';
+import { Phone } from './phone';
+import { PhoneService } from './phone.service';
 
 @Component({
     selector: 'import',
-    templateUrl: '/resources/app/import.component.html'
+    templateUrl: '../import.component.html'
 })
 
 export class ImportComponent implements OnInit {
@@ -20,7 +20,7 @@ export class ImportComponent implements OnInit {
     getPhones(): void {
         this.phoneService
             .searchPhones()
-            .then(phones => this.phones = phones);
+            .subscribe(phones => this.phones = phones);
     }
 
     ngOnInit() {

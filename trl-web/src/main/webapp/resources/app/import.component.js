@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var phone_service_1 = require('/resources/app/phone.service');
+var phone_service_1 = require('./phone.service');
 var ImportComponent = (function () {
     function ImportComponent(phoneService) {
         this.phoneService = phoneService;
@@ -19,7 +19,7 @@ var ImportComponent = (function () {
         var _this = this;
         this.phoneService
             .searchPhones()
-            .then(function (phones) { return _this.phones = phones; });
+            .subscribe(function (phones) { return _this.phones = phones; });
     };
     ImportComponent.prototype.ngOnInit = function () {
         this.getPhones();
@@ -27,12 +27,11 @@ var ImportComponent = (function () {
     ImportComponent = __decorate([
         core_1.Component({
             selector: 'import',
-            templateUrl: '/resources/app/import.component.html'
+            templateUrl: '../import.component.html'
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof phone_service_1.PhoneService !== 'undefined' && phone_service_1.PhoneService) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [phone_service_1.PhoneService])
     ], ImportComponent);
     return ImportComponent;
-    var _a;
 }());
 exports.ImportComponent = ImportComponent;
 //# sourceMappingURL=import.component.js.map

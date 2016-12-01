@@ -10,10 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var sidebar_component_1 = require('/resources/app/sidebar.component');
-var navigation_menu_component_1 = require('/resources/app/navigation-menu.component');
-var phone_service_1 = require('/resources/app/phone.service');
-var navigation_menu_service_1 = require('/resources/app/navigation-menu.service');
+var sidebar_component_1 = require('./sidebar.component');
+var phone_service_1 = require('./phone.service');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -28,10 +26,13 @@ var AppComponent = (function () {
     };
     AppComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-app',
-            templateUrl: '/resources/app/app.component.html',
-            directives: [router_1.ROUTER_DIRECTIVES, sidebar_component_1.SidebarComponent, navigation_menu_component_1.NavigationMenuComponent],
-            providers: [phone_service_1.PhoneService, navigation_menu_service_1.NavigationMenuService]
+            templateUrl: './app.component.html',
+            directives: [router_1.ROUTER_DIRECTIVES, sidebar_component_1.SidebarComponent],
+            providers: [
+                phone_service_1.PhoneService
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

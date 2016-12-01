@@ -37,7 +37,7 @@ var TableComponent = (function () {
         var _this = this;
         this.phoneService
             .searchPhones()
-            .then(function (phones) { return _this.phones = phones; });
+            .subscribe(function (phones) { return _this.phones = phones; });
     };
     TableComponent.prototype.ngOnInit = function () {
         this.getPhones();

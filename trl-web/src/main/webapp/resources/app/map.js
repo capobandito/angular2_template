@@ -1,5 +1,5 @@
 "use strict";
-var path_1 = require("/resources/app/path");
+var path_1 = require("./path");
 var Map = (function () {
     function Map() {
         this.viewBox = "50 200 950 1100";

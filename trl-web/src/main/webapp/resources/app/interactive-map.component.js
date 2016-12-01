@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var map_service_1 = require('/resources/app/map.service');
+var map_service_1 = require('./map.service');
 var InteractiveMapComponent = (function () {
     function InteractiveMapComponent(router, mapService) {
         this.router = router;
@@ -36,10 +36,9 @@ var InteractiveMapComponent = (function () {
             template: "\n\n    <h3 *ngIf=\"!selectedPath\"> Selected district:</h3>\n    <h3 *ngIf=\"selectedPath\"> Selected district: {{selectedPath.title}}</h3>\n\n    <div *ngIf=\"map\">\n        <svg [attr.viewBox]=\"map.viewBox\"\n             preserveAspectRatio=\"xMidYMid meet\" width=\"800\" height=\"600\" xmlns:svg=\"http://www.w3.org/1999/html\">\n\n          <svg:g *ngFor=\"let district of map.districts\" [attr.title]=\"district.title\" >\n\n              <svg:path [attr.d]=\"district.path.d\"\n                        [attr.title]=\"district.path.title\"\n                        (mouseover)=\"mouseOver(district)\"\n                        (click)=\"onclick(district.path)\">\n              </svg:path>\n\n          </svg:g>\n\n        </svg>\n    </div>\n    ",
             providers: [map_service_1.MapService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, (typeof (_a = typeof map_service_1.MapService !== 'undefined' && map_service_1.MapService) === 'function' && _a) || Object])
+        __metadata('design:paramtypes', [router_1.Router, map_service_1.MapService])
     ], InteractiveMapComponent);
     return InteractiveMapComponent;
-    var _a;
 }());
 exports.InteractiveMapComponent = InteractiveMapComponent;
 //# sourceMappingURL=interactive-map.component.js.map
