@@ -2,7 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
 import {SidebarComponent} from './sidebar.component';
-import { PhoneService } from './phone.service';
+import {NavigationMenuComponent} from './navigation-menu.component';
+
+import {PhoneService} from './phone.service';
+import {NavigationMenuService} from './navigation-menu.service';
 
 declare var $:any;
 
@@ -10,10 +13,8 @@ declare var $:any;
     moduleId : module.id,
     selector: 'my-app',
     templateUrl: './app.component.html',
-    directives: [ROUTER_DIRECTIVES, SidebarComponent],
-    providers: [
-        PhoneService
-    ]
+    directives: [ROUTER_DIRECTIVES, SidebarComponent, NavigationMenuComponent],
+    providers: [PhoneService, NavigationMenuService]
 })
 
 export class AppComponent implements OnInit{
