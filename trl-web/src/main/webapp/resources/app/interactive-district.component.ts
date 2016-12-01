@@ -8,10 +8,11 @@ import {FoundPathsPipe} from './found-paths.pipe'
 
 
 @Component({
+    moduleId: module.id,
     selector: 'interactiveMap',
     template: `
 
-    <link rel="stylesheet" href="../resources/app/interactive-district.component.css">
+    <link rel="stylesheet" href="./interactive-district.component.css">
 
     <h3 *ngIf="district && !selectedPath">Selected subdistrict for {{district.title}}:</h3>
     <h3 *ngIf="selectedPath">Selected subdistrict for {{district.title}}: {{selectedPath.title}}</h3>
@@ -32,7 +33,7 @@ import {FoundPathsPipe} from './found-paths.pipe'
           <svg:g [attr.title]="district.title" [attr.transform]="district.transform" >
                <svg:path *ngFor="let path of district.paths" [attr.d]="path.d"
                         [attr.title]="path.title"
-                        (mouseover)="mouseOver(path)"  [class.path]="!path.found" [class.path-selected]="path.found"></svg:path>
+                        (mouseover)="mouseOver(path)" [ngClass]="setClasses(path)"></svg:path>
           </svg:g>
 
         </svg>
@@ -47,7 +48,6 @@ export class InteractiveDistrictComponent implements OnInit {
     district:District;
     selectedPath:Path;
     search = '';
-    isFound = false;
 
     constructor(private route:ActivatedRoute, private mapService:MapService) {
     }
@@ -69,6 +69,14 @@ export class InteractiveDistrictComponent implements OnInit {
         for (let path of this.district.paths) {
             path.setFound(this.search && path.title.startsWith(this.search));
         }
+    }
+
+    setClasses(path: Path) {
+        let classes = {
+            path: !path.found,
+            pathSlected: path.found
+        }
+        return classes;
     }
 
 }
